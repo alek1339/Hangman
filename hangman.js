@@ -28,7 +28,7 @@ word.innerHTML = wordInArr.join(' ')
 var errors = 0
 var score = 0
 
-function nextMove() {
+function nextMove () {
   let textInput = document.getElementById('textInput').value
 
   if (country.indexOf(textInput) !== -1 || country.indexOf(textInput.toUpperCase()) !== -1) {
@@ -71,13 +71,15 @@ function nextMove() {
   document.getElementById('textInput').value = ''
 }
 
-function newGame() {
+function newGame () {
   randomNum = parseInt(Math.random() * 10)
   country = countries[randomNum]
   score = 0
   errors = 0
   document.getElementById('textInput').disabled = false
   wordInArr = []
+  result.style.color = 'black'
+
   document.getElementById('img').src = `./images/err${errors}.gif`
   for (let i = 0; i < country.length; i++) {
     wordInArr.push('_')
