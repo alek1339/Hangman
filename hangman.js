@@ -54,7 +54,9 @@ function nextMove() {
       word.innerHTML = wordInArr.join(' ')
 
       if (score >= country.length - whiteSpaces - 1) {
+        word.innerHTML = country
         result.innerHTML = 'You Won!'
+        word.style.color = 'green'
         result.style.color = 'green'
         document.getElementById('textInput').disabled = true
       }
