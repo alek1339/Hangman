@@ -43,7 +43,9 @@ function nextMove () {
             wordInArr[i] = textInput
           }
 
-          score++
+          if (score > 0 && i > 0) {
+            score++
+          }
         }
       }
       word.innerHTML = wordInArr.join(' ')
@@ -78,7 +80,6 @@ function newGame () {
   errors = 0
   document.getElementById('textInput').disabled = false
   wordInArr = []
-  result.style.color = 'black'
 
   document.getElementById('img').src = `./images/err${errors}.gif`
   for (let i = 0; i < country.length; i++) {
@@ -86,4 +87,5 @@ function newGame () {
   }
   result.innerHTML = ''
   word.innerHTML = wordInArr.join(' ')
+  word.style.color = 'black'
 }
