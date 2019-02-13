@@ -12,13 +12,14 @@ var countries = ['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Angu
   'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'South Africa', 'South Korea', 'Spain', 'Sri Lanka', 'St Kitts Nevis', 'St Lucia', 'St Vincent', 'St. Lucia', 'Sudan',
   'Suriname', 'Swaziland', 'Sweden', 'Switzerland', 'Syria', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', "Timor L'Este", 'Togo', 'Tonga', 'Trinidad Tobago', 'Tunisia',
   'Turkey', 'Turkmenistan', 'Turks Caicos', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States', 'United States Minor Outlying Islands', 'Uruguay',
-  'Uzbekistan', 'Venezuela', 'Vietnam', 'Virgin Islands (US)', 'Yemen', 'Zambia', 'Zimbabwe']
+  'Uzbekistan', 'Venezuela', 'Vietnam', 'Virgin Islands', 'Yemen', 'Zambia', 'Zimbabwe']
 var randomNum = Math.floor(Math.random() * countries.length)
 var country = countries[randomNum]
 
 var word = document.getElementById('word')
 var wordInArr = []
 var result = document.getElementById('result')
+var whiteSpaces = country.split(' ').length - 1
 
 for (let i = 0; i < country.length; i++) {
   wordInArr.push('_')
@@ -28,7 +29,7 @@ word.innerHTML = wordInArr.join(' ')
 var errors = 0
 var score = 0
 
-function nextMove () {
+function nextMove() {
   let textInput = document.getElementById('textInput').value
 
   if (country.indexOf(textInput) !== -1 || country.indexOf(textInput.toUpperCase()) !== -1) {
@@ -52,7 +53,7 @@ function nextMove () {
       }
       word.innerHTML = wordInArr.join(' ')
 
-      if (score === country.length - 1) {
+      if (score >= country.length - whiteSpaces - 1) {
         result.innerHTML = 'You Won!'
         result.style.color = 'green'
         document.getElementById('textInput').disabled = true
@@ -75,7 +76,7 @@ function nextMove () {
   document.getElementById('textInput').value = ''
 }
 
-function newGame () {
+function newGame() {
   randomNum = parseInt(Math.random() * countries.length)
   country = countries[randomNum]
   score = 0
