@@ -29,7 +29,7 @@ word.innerHTML = wordInArr.join(' ')
 var errors = 0
 var score = 0
 
-function nextMove() {
+function nextMove () {
   let textInput = document.getElementById('textInput').value
 
   if (country.indexOf(textInput) !== -1 || country.indexOf(textInput.toUpperCase()) !== -1) {
@@ -48,7 +48,6 @@ function nextMove() {
           } else if (i > 0) {
             score++
           }
-          console.log(country + ' ' + score)
         }
       }
       word.innerHTML = wordInArr.join(' ')
@@ -78,7 +77,7 @@ function nextMove() {
   document.getElementById('textInput').value = ''
 }
 
-function newGame() {
+function newGame () {
   randomNum = parseInt(Math.random() * countries.length)
   country = countries[randomNum]
   score = 0
