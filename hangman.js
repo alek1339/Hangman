@@ -76,7 +76,7 @@ function nextMove () {
 }
 
 function newGame () {
-  randomNum = parseInt(Math.random() * 10)
+  randomNum = parseInt(Math.random() * countries.length)
   country = countries[randomNum]
   score = 0
   errors = 0
